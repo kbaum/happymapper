@@ -14,5 +14,12 @@ Gem::Specification.new do |s|
   s.platform     = Gem::Platform::RUBY
   s.files        = Dir.glob("{examples,lib,spec}/**/*") + %w[License Rakefile README.rdoc]
 
-  s.add_dependency              'libxml-ruby', '~> 2.0'
+
+
+  if RUBY_PLATFORM == "java"
+    s.add_dependency 'libxml-jruby', '~> 1'
+  else
+    s.add_dependency 'libxml-ruby', '~> 2.0'
+  end
+
 end
